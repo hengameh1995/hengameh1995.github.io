@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Hengameh Koliyaei — Palem</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=MuseoModerno:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=MuseoModerno:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -267,6 +267,100 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
   .palette-row{grid-template-columns:repeat(4,1fr)}
 }
 </style>
+<style id="bw-theme">
+/* bw-theme: black text, thin titles */
+body, body *:not(.proto-frame *):not(.cursor):not(.cursor-ring){color:#000!important}
+body *:not(.proto-frame *)::before, body *:not(.proto-frame *)::after{color:#000!important}
+svg text:not(.proto-frame svg text){fill:#000!important;font-weight:200!important}
+::placeholder{color:#000!important;opacity:.55!important}
+:is(h1,h2,h3,h4,h5,h6):not(.proto-frame *){font-weight:200!important}
+:is([class*="title"],[class*="heading"],[class*="headline"]):not([class*="font-"]):not(.proto-frame *){font-weight:200!important}
+:is(.nav-center,.hero-title,.section-heading,.concept-stat-num,.brand-tagline,.insight-num,.ut-meta-num,.ut-severity,.ut-finding-title,.ut-iter-arrow,.ut-iter-text strong,.next-title,.swatch-hex):not(.proto-frame *){font-weight:200!important}
+
+.poster-cell-label{background:linear-gradient(to top,rgba(255,255,255,.9),transparent)!important}
+.prompt-cell{background:#f6f6f6!important}
+.swatch-name,.swatch-hex{opacity:1!important}
+@media(min-width:901px){
+nav{padding:.7rem 2rem!important}
+#hero{padding:0 2rem 2rem!important}
+.hero-content-left{padding-bottom:2rem!important}
+.hero-bottom{flex-direction:row!important;align-items:flex-end!important;gap:2rem!important;margin-top:1rem!important}
+.hero-meta{flex-direction:row!important;gap:1.5rem!important}
+section:not(#hero){padding:2.5rem 2rem!important}
+.split{display:grid!important;grid-template-columns:minmax(200px,24%) minmax(0,1fr)!important;column-gap:2.5rem!important;align-items:start!important}
+.split>.sec-head{position:sticky;top:4.5rem}
+.split .section-heading{font-size:clamp(1.6rem,2.3vw,2.4rem)!important;margin-bottom:0!important;overflow-wrap:anywhere}
+.split>.sec-body{min-width:0}
+.overview-cell{padding:1.25rem 2rem!important}
+.pipeline-header,.voice-header,.type-header,.video-header{padding:1.5rem 2rem 1rem!important}
+.pipeline-footer,.video-footer{padding:1rem 2rem!important}
+.flow-steps{padding:0 2rem 1.5rem!important}
+.pipeline-diagram{flex-direction:row!important;padding:1.5rem 2rem!important;gap:1.5rem!important}
+.diagram-connector{flex-direction:row!important;margin:0!important}
+.diagram-connector::before{width:22px!important;height:1px!important}
+.system-card,.insight-card{padding:1.25rem!important}
+.prompt-cell,.font-showcase,.type-cell,.type-cell-wide{padding:1.5rem!important}
+.rq-box{padding:1.25rem 1.5rem!important}
+.ut-finding{padding:1.25rem!important}
+.ut-quote{padding:1rem 1rem 1rem 1.5rem!important}
+.ut-iter-item{padding:1rem!important}
+th,td{padding:.6rem .9rem!important}
+.concept-grid,.theory-layout,.brand-identity,.character-identity{gap:2rem!important}
+.character-identity,.brand-identity{padding-top:1.5rem!important;margin:1.5rem 0 2rem!important}
+.prototype-layout,.app-layout-new{gap:2.5rem!important}
+.prototype-detail-block,.app-detail-block{padding:1rem 0!important}
+.obj-list,.future-list{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))!important;gap:1rem 2rem!important;max-width:none!important}
+.character-body,.brand-body{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important;gap:1rem 1.5rem!important}
+.merch-stack{flex-direction:row!important;gap:1rem!important}
+.feature-list{flex-direction:row!important;flex-wrap:wrap!important;gap:.4rem 1.5rem!important}
+.next-back,.next-project{padding:1.5rem 2rem!important}
+footer.credits{padding:1rem 2rem!important}
+}
+</style>
+<style id="bw-art-link">
+@media(min-width:901px){#next{grid-template-columns:repeat(3,1fr)!important}}
+</style>
+<style id="bw-images">
+.img-grid{display:grid;gap:1.5rem;margin-top:1.5rem}
+.img-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.img-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.img-grid .poster-cell{aspect-ratio:var(--ar,1/1)}
+.img-grid .poster-cell img{width:100%;height:100%;object-fit:cover;border-radius:0}
+.type-showcase{gap:1.5rem!important}
+.type-cell,.type-cell-wide{height:420px;padding:1.5rem!important}
+.type-cell img,.type-cell-wide img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain}
+@media(max-width:900px){.img-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}.type-cell,.type-cell-wide{height:300px}}
+</style>
+<style id="bw-thin">
+/* Visual Language + User Testing: smaller and thinner */
+#type-color .section-heading,#user-testing .section-heading{font-size:clamp(1.1rem,1.5vw,1.4rem)!important;font-weight:100!important;letter-spacing:.06em!important}
+#user-testing .ut-meta-row{gap:2rem!important;margin-top:1.25rem!important;padding-bottom:1.25rem!important}
+#user-testing .ut-meta-num{font-size:1.5rem!important;font-weight:100!important}
+#user-testing .ut-meta-label{font-size:.6rem!important}
+#user-testing .ut-grid,#user-testing .ut-quotes{margin-top:1.5rem!important}
+#user-testing .ut-iterations{margin-top:1.75rem!important}
+#user-testing .ut-finding-title{font-size:.8rem!important;font-weight:200!important}
+#user-testing .ut-finding-body{font-size:.72rem!important}
+#user-testing .ut-finding-stat{font-size:.66rem!important}
+#user-testing .ut-severity{font-size:.52rem!important;font-weight:200!important}
+#user-testing .ut-quote-text{font-size:.85rem!important;font-weight:200!important}
+#user-testing .ut-quote-author,#user-testing .ut-iter-label{font-size:.6rem!important}
+#user-testing .ut-iter-text strong{font-size:.76rem!important;font-weight:200!important}
+#user-testing .ut-iter-text span{font-size:.7rem!important}
+#type-color .font-showcase{margin-top:1.25rem!important;padding:1.25rem!important}
+#type-color .font-display{font-size:clamp(1.8rem,3.5vw,2.8rem)!important;font-weight:300!important;margin-bottom:.75rem!important}
+#type-color .font-weights-row{font-size:.85rem!important;gap:1.5rem!important;margin-bottom:1rem!important}
+#type-color .font-alphabet{font-size:.75rem!important;padding-top:.75rem!important}
+#type-color .font-name-label,#type-color .palette-label{font-size:.6rem!important}
+#type-color .palette-wrap{margin-top:1.75rem!important}
+#type-color .palette-row{gap:.6rem!important}
+#type-color .swatch{aspect-ratio:1/1.25!important;padding:.6rem .5rem!important}
+#type-color .swatch-name{font-size:.5rem!important}
+#type-color .swatch-hex{font-size:.58rem!important;font-weight:300!important}
+</style>
+
+
+
 <script type="importmap">
 {
   "imports": {
@@ -412,9 +506,9 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
 </section>
 
 <!-- BRAND / POSTERS -->
-<section id="brand">
-  <div class="section-label fade-up">Visual Identity</div>
-  <h2 class="section-heading fade-up">Brand<br/><em>World</em></h2>
+<section id="brand" class="split">
+  <div class="sec-head"><div class="section-label fade-up">Visual Identity</div>
+  <h2 class="section-heading fade-up">Brand<br/><em>World</em></h2></div><div class="sec-body">
 
   <div class="brand-identity fade-up">
     <div class="brand-tagline">The Lizard Knows</div>
@@ -426,68 +520,38 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
     </div>
   </div>
 
-  <div class="merch-grid fade-up">
-    <div class="poster-cell">
-      <img src="palem box.jpg" alt="Palem packaging"/>
-      <div class="poster-cell-label">Product Packaging · Brand System</div>
-    </div>
-    <div class="merch-stack">
-      <div class="poster-cell">
-        <img src="palem tot bag.png" alt="Palem tote bag"/>
-        <div class="poster-cell-label">Merchandise · Tote Bag</div>
-      </div>
-      <div class="poster-cell">
-        <img src="palem box 2.png" alt="Palem box collection"/>
-        <div class="poster-cell-label">Product Packaging · Collection</div>
-      </div>
-    </div>
+  <div class="img-grid img-grid--3 fade-up" style="--ar:1/1">
+    <div class="poster-cell"><img src="palem box.jpg" alt="Palem packaging"/></div>
+    <div class="poster-cell"><img src="palem tot bag.png" alt="Palem tote bag"/></div>
+    <div class="poster-cell"><img src="palem box 2.png" alt="Palem box collection"/></div>
   </div>
 
-  <div class="poster-grid poster-grid--3">
-    <div class="poster-cell fade-up">
-      <img src="Lizard with Camera (1).png" alt="Palem — Your plant's most loyal soldier"/>
-      <div class="poster-cell-label">Campaign Poster · Lizard Series</div>
-    </div>
-    <div class="poster-cell fade-up">
-      <img src="palem poster 1.png" alt="Palem — Old skin off. New data in"/>
-      <div class="poster-cell-label">Campaign Poster · Folk Illustration</div>
-    </div>
-    <div class="poster-cell fade-up">
-      <img src="Lizard Eye Lens 2.png" alt="Palem — Your plant's most loyal soldier"/>
-      <div class="poster-cell-label">Campaign Poster · Lizard Series</div>
-    </div>
-    <div class="poster-cell fade-up">
-      <img src="palem poster 3.png" alt="Palem — Your plants' guardian"/>
-      <div class="poster-cell-label">Campaign Poster · Guardian</div>
-    </div>
-    <div class="poster-cell fade-up">
-      <img src="Lizard Eye Lens.png" alt="Palem — It doesn't guess. It reads."/>
-      <div class="poster-cell-label">Campaign Poster · Lizard Series</div>
-    </div>
+  <div class="img-grid img-grid--3 fade-up" style="--ar:2412/2648">
+    <div class="poster-cell"><img src="Lizard with Camera (1).png" alt="Palem — Your plant's most loyal soldier"/></div>
+    <div class="poster-cell"><img src="Lizard Eye Lens 2.png" alt="Palem — Your plant's most loyal soldier"/></div>
+    <div class="poster-cell"><img src="Lizard Eye Lens.png" alt="Palem — It doesn't guess. It reads."/></div>
+  </div>
+
+  <div class="img-grid img-grid--2 fade-up" style="--ar:2/3">
+    <div class="poster-cell"><img src="palem poster 1.png" alt="Palem — Old skin off. New data in"/></div>
+    <div class="poster-cell"><img src="palem poster 3.png" alt="Palem — Your plants' guardian"/></div>
   </div>
 
   <div class="social-mockup-wrap fade-up">
     <div class="social-mockup-label">Social Media Campaign</div>
-    <img src="palem banner 4.png" alt="Palem Instagram campaign mockup"/>
+    <div class="img-grid img-grid--2" style="--ar:3/2;margin-top:0">
+      <div class="poster-cell"><img src="palem banner 4.png" alt="Palem Instagram campaign mockup"/></div>
+      <div class="poster-cell"><img src="palem gif 2.gif" alt="Palem Instagram campaign animation"/></div>
+      <div class="poster-cell"><img src="palem banner 2.png" alt="Palem campaign banner"/></div>
+      <div class="poster-cell"><img src="palem banner 3.png" alt="Palem campaign banner"/></div>
+    </div>
   </div>
-
-  <div class="social-mockup-wrap fade-up" style="margin-top:2rem">
-    <img src="palem gif 2.gif" alt="Palem Instagram campaign animation"/>
-  </div>
-
-  <div class="social-mockup-wrap fade-up" style="margin-top:2rem">
-    <img src="palem banner 2.png" alt="Palem campaign banner"/>
-  </div>
-
-  <div class="social-mockup-wrap fade-up" style="margin-top:2rem">
-    <img src="palem banner 3.png" alt="Palem campaign banner"/>
-  </div>
-</section>
+</div></section>
 
 <!-- FONT & COLOUR IDENTITY -->
-<section id="type-color">
-  <div class="section-label fade-up">Type & Colour</div>
-  <h2 class="section-heading fade-up">Visual<br/><em>Language</em></h2>
+<section id="type-color" class="split">
+  <div class="sec-head"><div class="section-label fade-up">Type & Colour</div>
+  <h2 class="section-heading fade-up">Visual<br/><em>Language</em></h2></div><div class="sec-body">
 
   <div class="font-showcase fade-up">
     <div class="font-name-label">Primary Typeface — MuseoModerno</div>
@@ -513,7 +577,7 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
       <div class="swatch" style="background:#f7931e"><div class="swatch-name">Sol</div><div class="swatch-hex">#f7931e</div></div>
     </div>
   </div>
-</section>
+</div></section>
 
 <!-- TYPOGRAPHY MOTION -->
 <section id="typography">
@@ -538,55 +602,6 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
   </div>
 </section>
 
-<!-- APP DESIGN -->
-<section id="app">
-  <div class="section-label fade-up">Product Design</div>
-  <h2 class="section-heading fade-up">The <em>App</em></h2>
-  <div class="app-layout-new">
-    <div class="app-details fade-up">
-      <div class="app-detail-block">
-        <div class="app-detail-title">Core Experience</div>
-        <div class="app-detail-body">
-          Palem connects the physical sensor to a clean, intuitive mobile interface.
-          The app translates raw sensor readings into human language — giving plant owners
-          clear guidance on what their plant needs, when it needs it.
-        </div>
-      </div>
-      <div class="app-detail-block">
-        <div class="app-detail-title">Key Features</div>
-        <ul class="feature-list">
-          <li>Real-time plant health monitoring via wireless sensor</li>
-          <li>Personalised care recommendations per plant species</li>
-          <li>Problem diagnosis with visual symptoms guide</li>
-          <li>Watering and care history log</li>
-          <li>Local plant store finder and community tips</li>
-          <li>Sensor battery management and calibration</li>
-        </ul>
-      </div>
-      <div class="app-detail-block">
-        <div class="app-detail-title">Design Principles</div>
-        <div class="app-detail-body">
-          Calm, not clinical. Every screen is designed to feel like advice from a knowledgeable
-          friend — never an overwhelming dashboard. The green palette brings nature into the
-          digital space without feeling artificial.
-        </div>
-      </div>
-    </div>
-    <div class="app-preview fade-up">
-      <div class="app-interact-hint">
-        <span class="app-hint-dot"></span>
-        <span>Live prototype — tap to explore</span>
-      </div>
-      <iframe
-        src="palem app.html"
-        title="Palem interactive app prototype"
-        scrolling="no"
-        frameborder="0"
-      ></iframe>
-    </div>
-  </div>
-</section>
-
 <!-- APP ARCHITECTURE -->
 <section id="architecture">
   <div class="arch-header fade-up">
@@ -606,9 +621,9 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
 </section>
 
 <!-- RESEARCH -->
-<section id="research">
-  <div class="section-label fade-up">Research</div>
-  <h2 class="section-heading fade-up">Key<br/><em>Insights</em></h2>
+<section id="research" class="split">
+  <div class="sec-head"><div class="section-label fade-up">Research</div>
+  <h2 class="section-heading fade-up">Key<br/><em>Insights</em></h2></div><div class="sec-body">
 
   <div class="insights-grid">
     <div class="insight-card fade-up">
@@ -640,12 +655,12 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
   <div class="research-image fade-up" style="margin-top:3rem">
     <img src="Screenshot 2025-05-02 at 20.04.36.png" alt="Palem research — key conclusions and key points"/>
   </div>
-</section>
+</div></section>
 
 <!-- USER TESTING -->
-<section id="user-testing">
-  <div class="section-label fade-up">Validation</div>
-  <h2 class="section-heading fade-up">User<br/><em>Testing</em></h2>
+<section id="user-testing" class="split">
+  <div class="sec-head"><div class="section-label fade-up">Validation</div>
+  <h2 class="section-heading fade-up">User<br/><em>Testing</em></h2></div><div class="sec-body">
 
   <div class="ut-meta-row fade-up">
     <div class="ut-meta-item">
@@ -753,7 +768,7 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
       </div>
     </div>
   </div>
-</section>
+</div></section>
 
 <!-- NEXT PROJECT -->
 <div id="next">
@@ -765,6 +780,12 @@ nav.scrolled{background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border
     <div class="next-title">Iwave</div>
     <div class="next-arrow">→</div>
   </a>
+  <a href="art.html" class="next-project">
+    <div class="next-label">Also See</div>
+    <div class="next-title">Painting &amp; Photography</div>
+    <div class="next-arrow">→</div>
+  </a>
+
 </div>
 
 <script>

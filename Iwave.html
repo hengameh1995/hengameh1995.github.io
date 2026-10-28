@@ -435,7 +435,7 @@
   }
   .banner-grid img {
     width: 100%; display: block;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(0,0,0,0.1);
+    box-shadow: none;
   }
 
   @media (max-width: 900px) {
@@ -446,6 +446,64 @@
   }
 
 </style>
+<style id="bw-theme">
+/* bw-theme: black text, thin titles */
+body, body *:not(.proto-frame *):not(.cursor):not(.cursor-ring){color:#000!important}
+body *:not(.proto-frame *)::before, body *:not(.proto-frame *)::after{color:#000!important}
+svg text:not(.proto-frame svg text){fill:#000!important;font-weight:200!important}
+::placeholder{color:#000!important;opacity:.55!important}
+:is(h1,h2,h3,h4,h5,h6):not(.proto-frame *){font-weight:200!important}
+:is([class*="title"],[class*="heading"],[class*="headline"]):not([class*="font-"]):not(.proto-frame *){font-weight:200!important}
+:is(.hero-title,.hero-title span,.purpose-headline,.purpose-headline em,.stat-num,.test-label,.videos-heading,.arch-heading,.next-ttl-iw,.proto-heading,.poster-headline,.banner-heading,.banner-heading em):not(.proto-frame *){font-weight:200!important}
+
+.kp-item{background:transparent!important;border-color:rgba(0,0,0,.15)!important}
+.kp-item:hover{background:rgba(0,0,0,.04)!important}
+.arch-inner svg rect{fill:#fff!important;stroke:#000!important}
+@media(min-width:901px){
+nav{padding:.6rem 2rem!important}
+.hero{padding:0 2rem 2rem!important;min-height:70vh!important}
+section{padding:2.5rem 2rem!important}
+.divider{margin:0 2rem!important}
+.s-label{margin-bottom:1.5rem!important}
+.purpose-grid,.arch-inner,.design-grid,.proto-layout,.poster-layout{gap:3rem!important}
+.videos-heading-row{margin-bottom:2rem!important;gap:2rem!important}
+.interview-grid,.test-grid{margin-top:2rem!important}
+.interview-card{padding:1.5rem 1.4rem!important}
+.test-card{padding:1.4rem 1.2rem!important}
+.kp-item{padding:1.5rem 1.4rem!important}
+.banner-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:1.5rem!important}
+.banner-desc{margin-bottom:1.5rem!important}
+.type-glyph-box{padding:2rem 1.5rem 1.5rem!important}
+.next-back-iw,.next-proj-iw{padding:1.5rem 2rem!important}
+footer{padding:1.2rem 2rem!important}
+}
+</style>
+<style id="bw-art-link">
+@media(min-width:901px){#next-section{grid-template-columns:repeat(3,1fr)!important}}
+</style>
+<style id="bw-lines">
+.divider{height:1px!important;background:rgba(0,0,0,.12)!important;margin:0!important}
+.hero-line{height:1px!important;left:0!important;right:0!important;background:rgba(0,0,0,.12)!important}
+@media(min-width:901px){
+section{padding:1.25rem 2rem!important}
+.hero{padding:0 2rem 1.25rem!important;min-height:55vh!important}
+.s-label{margin-bottom:1rem!important}
+.purpose-grid,.arch-inner,.design-grid,.poster-layout{gap:2rem!important}
+.stat-row{margin-top:1.25rem!important}
+.videos-heading-row{margin-bottom:1rem!important}
+.interview-grid,.test-grid{margin-top:1.25rem!important;gap:1rem!important}
+.interview-card{padding:1rem 1.1rem!important}
+.test-card{padding:1rem!important}
+.kp-item{padding:1rem 1.1rem!important}
+.banner-grid{gap:1rem!important}
+.banner-desc{margin-bottom:1rem!important}
+.type-glyph-box{padding:1.25rem 1rem 1rem!important}
+.next-back-iw,.next-proj-iw{padding:1rem 2rem!important}
+footer{padding:.9rem 2rem!important}
+}
+</style>
+
+
 </head>
 <body>
 
@@ -559,810 +617,6 @@
 
   <div class="divider"></div>
 
-  <!-- LIVE PROTOTYPE -->
-  <section class="proto-section">
-    <div class="s-label">Interactive Prototype</div>
-    <div class="proto-layout">
-      <div class="proto-info">
-        <h2 class="proto-heading">Try it<br>yourself.</h2>
-        <p class="proto-desc">A working click-through of the Iwave app — switch between the Student and Founder journeys, browse scholarships, review candidates, and submit an application, all inside a live mobile mockup.</p>
-      </div>
-      <div class="proto-frame">
-        <style>
-          .proto-frame{
-            --green:        #14944B;
-            --green-deep:   #0B6E39;
-            --green-shadow: #08532A;
-            --sky:          #4FB6E8;
-            --blue:         #3D4FE0;
-            --blue-deep:    #2B39B8;
-            --orange:       #F2994A;
-            --orange-deep:  #D97C29;
-            --red:          #E5382B;
-            --red-deep:     #B92A20;
-            --ink:          #12181A;
-            --paper:        #F6F7F1;
-            --paper-dim:    #E9ECE3;
-            --line:         #DDE1D6;
-            --font-display: ui-rounded, "SF Pro Rounded", "Segoe UI Rounded", system-ui, -apple-system, sans-serif;
-            --font-body:    -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
-            font-family:var(--font-body);
-            color:var(--ink);
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            padding:1rem;
-            box-sizing:border-box;
-          }
-          .proto-frame *{ box-sizing:border-box; }
-
-          /* ---------- device ---------- */
-          .device{
-            width:min(430px,92vw);
-            aspect-ratio:430/932;
-            background:#05100a;
-            border-radius:clamp(28px,7vw,46px);
-            padding:clamp(10px,2.2vw,14px);
-            box-shadow:
-              0 30px 60px -20px rgba(0,0,0,.55),
-              0 0 0 1px rgba(255,255,255,.06) inset;
-            position:relative;
-          }
-          .device::before{
-            content:"";
-            position:absolute;
-            top:clamp(10px,2.2vw,14px);
-            left:50%;
-            transform:translateX(-50%);
-            width:34%;
-            height:clamp(18px,4vw,26px);
-            background:#05100a;
-            border-radius:0 0 16px 16px;
-            z-index:5;
-          }
-          .device-screen{
-            position:relative;
-            width:100%;
-            height:100%;
-            background:var(--paper);
-            border-radius:clamp(20px,5.5vw,36px);
-            overflow:hidden;
-            display:flex;
-            flex-direction:column;
-            font-size:clamp(12px,2.9vw,15px);
-          }
-
-          .statusbar{
-            flex:0 0 auto;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:.9em 1.4em .4em;
-            font:700 .82em/1 var(--font-body);
-            font-variant-numeric:tabular-nums;
-          }
-          .statusbar .icons{ display:flex; gap:.35em; align-items:center; }
-          .statusbar svg{ width:1.1em; height:1.1em; display:block; }
-
-          .screen-body{
-            flex:1 1 auto;
-            min-height:0;
-            overflow-y:auto;
-            scrollbar-width:none;
-          }
-          .screen-body::-webkit-scrollbar{ display:none; }
-
-          .tabbar{
-            flex:0 0 auto;
-            display:flex;
-            justify-content:space-around;
-            align-items:center;
-            padding:.7em .5em calc(.7em + env(safe-area-inset-bottom,0px));
-            border-top:1px solid var(--line);
-            background:#fff;
-          }
-          .tabbar.hidden{ display:none; }
-          .tabbar button{
-            background:none;
-            border:none;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:.25em;
-            color:#9AA39A;
-            font:600 .6em/1 var(--font-body);
-            letter-spacing:.02em;
-            padding:.3em .4em;
-            cursor:pointer;
-            flex:1 1 0;
-          }
-          .tabbar button svg{ width:1.3em; height:1.3em; }
-          .tabbar button.active{ color:var(--blue); }
-          .tabbar button:focus-visible{ outline:2px solid var(--blue); border-radius:8px; }
-
-          /* ================= SPLASH / ROLE PICKER ================= */
-          .splash{
-            height:100%;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            text-align:center;
-            padding:2em 1.5em 1.6em;
-            color:#fff;
-            background:
-              repeating-linear-gradient(90deg, rgba(79,182,232,.24) 0 8px, transparent 8px 20px),
-              linear-gradient(165deg, var(--green) 0%, var(--green-deep) 70%, var(--green-shadow) 100%);
-          }
-          .splash .mark{
-            width:3em; height:3em;
-            background:var(--red);
-            border-radius:28%;
-            display:flex; align-items:center; justify-content:center;
-            box-shadow:0 .5em 1.2em -.5em rgba(0,0,0,.5);
-            margin-bottom:.7em;
-          }
-          .splash .mark svg{ width:1.7em; height:1.7em; }
-          .splash .word{
-            font:900 1.9em/1 var(--font-display);
-            letter-spacing:-.02em;
-            margin:0 0 .2em;
-          }
-          .splash .tag{
-            font:600 .82em/1.4 var(--font-body);
-            color:rgba(255,255,255,.88);
-            max-width:24ch;
-            text-wrap:balance;
-            margin-bottom:1.3em;
-          }
-          .splash .ask{
-            font:800 1.05em/1.2 var(--font-display);
-            margin:.2em 0 1em;
-          }
-          .role-grid{
-            width:100%;
-            display:flex;
-            flex-direction:column;
-            gap:.8em;
-          }
-          .role-card{
-            display:flex;
-            align-items:center;
-            gap:.9em;
-            width:100%;
-            background:rgba(255,255,255,.1);
-            border:1px solid rgba(255,255,255,.32);
-            border-radius:18px;
-            padding:1em 1.1em;
-            color:#fff;
-            text-align:left;
-            cursor:pointer;
-            transition:background .15s ease, transform .15s ease;
-          }
-          .role-card:hover{ background:rgba(255,255,255,.18); }
-          .role-card:active{ transform:scale(.98); }
-          .role-card .ric{
-            width:2.6em; height:2.6em; border-radius:12px;
-            background:#fff; color:var(--green-deep);
-            display:flex; align-items:center; justify-content:center;
-            flex:0 0 auto;
-          }
-          .role-card .ric svg{ width:1.4em; height:1.4em; }
-          .role-card h3{ font:800 .95em/1.2 var(--font-display); margin:0 0 .2em; letter-spacing:-.005em; }
-          .role-card p{ font:600 .74em/1.35 var(--font-body); color:rgba(255,255,255,.82); margin:0; }
-          .role-card .go{ margin-left:auto; opacity:.8; flex:0 0 auto; }
-          .role-card .go svg{ width:1.1em; height:1.1em; }
-
-          /* ================= shared UI bits ================= */
-          .px{ padding-left:1.3em; padding-right:1.3em; }
-          .section-title{
-            font:800 .95em/1 var(--font-display);
-            letter-spacing:-.01em;
-            margin:1.3em 0 .7em;
-          }
-          .section-title.first{ margin-top:.2em; }
-          .chip{
-            display:inline-flex; align-items:center; gap:.4em;
-            font:700 .68em/1 var(--font-body);
-            padding:.5em .8em;
-            border-radius:99px;
-            white-space:nowrap;
-          }
-          .chip.orange{ background:#FDE9D4; color:var(--orange-deep); }
-          .chip.blue{ background:#DEE1FA; color:var(--blue-deep); }
-          .chip.green{ background:#D9F0E1; color:var(--green-deep); }
-          .chip.red{ background:#FBE1DE; color:var(--red-deep); }
-          .chip.neutral{ background:var(--paper-dim); color:#5B6259; }
-
-          .page-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1em; }
-          .page-head h2{ font:800 1.15em/1.2 var(--font-display); margin:0; letter-spacing:-.01em; }
-          .page-head span.sub{ display:block; font:600 .75em/1 var(--font-body); color:#6B7268; margin-top:.25em; }
-          .icon-btn{
-            width:2.2em; height:2.2em; border-radius:50%;
-            background:#fff; border:1px solid var(--line);
-            display:flex; align-items:center; justify-content:center;
-            position:relative; flex:0 0 auto; cursor:pointer;
-          }
-          .icon-btn svg{ width:1.05em; height:1.05em; color:var(--ink); }
-          .icon-btn.dot::after{
-            content:""; position:absolute; top:.5em; right:.5em;
-            width:.5em; height:.5em; border-radius:50%;
-            background:var(--red); border:2px solid #fff;
-          }
-
-          .filter-row{
-            display:flex; gap:.5em; overflow-x:auto; padding-bottom:.2em; margin-bottom:1.1em;
-            scrollbar-width:none;
-          }
-          .filter-row::-webkit-scrollbar{ display:none; }
-          .filter-chip{
-            flex:0 0 auto;
-            font:700 .72em/1 var(--font-body);
-            padding:.6em 1em;
-            border-radius:99px;
-            background:#fff; border:1px solid var(--line); color:#5B6259;
-            cursor:pointer; white-space:nowrap;
-          }
-          .filter-chip.active{ background:var(--ink); border-color:var(--ink); color:#fff; }
-
-          /* ---- listing / candidate cards ---- */
-          .listing-card, .candidate-card{
-            display:flex; flex-direction:column; gap:.7em;
-            background:#fff; border:1px solid var(--line);
-            border-radius:18px; padding:1.05em;
-            margin-bottom:.8em;
-          }
-          .listing-card .top, .candidate-card .top{ display:flex; gap:.8em; align-items:flex-start; }
-          .logo-badge{
-            width:2.6em; height:2.6em; border-radius:11px; flex:0 0 auto;
-            display:flex; align-items:center; justify-content:center;
-            color:#fff; font:800 .8em/1 var(--font-display);
-          }
-          .listing-card h3, .candidate-card h3{ font:800 .92em/1.25 var(--font-display); margin:0 0 .15em; letter-spacing:-.005em; }
-          .listing-card .meta, .candidate-card .meta{ font:600 .74em/1.4 var(--font-body); color:#6B7268; }
-          .listing-card .blurb, .candidate-card .quote{
-            font:500 .78em/1.5 var(--font-body); color:#40473F; margin:0;
-          }
-          .candidate-card .quote{ font-style:italic; }
-          .tagrow{ display:flex; gap:.4em; flex-wrap:wrap; }
-          .btn{
-            display:inline-flex; align-items:center; justify-content:center; gap:.4em;
-            font:800 .82em/1 var(--font-body);
-            padding:.85em 1em;
-            border-radius:13px;
-            border:none; cursor:pointer;
-            width:100%;
-          }
-          .btn.primary{ background:var(--blue); color:#fff; }
-          .btn.primary:active{ background:var(--blue-deep); }
-          .btn.outline{ background:#fff; color:var(--ink); border:1.5px solid var(--line); }
-          .btn.success{ background:var(--green); color:#fff; }
-          .btn.danger-outline{ background:#fff; color:var(--red-deep); border:1.5px solid #F3C9C4; }
-          .btn.disabled{ opacity:.55; pointer-events:none; }
-          .btn-row{ display:flex; gap:.6em; }
-          .btn-row .btn{ width:auto; flex:1 1 0; }
-
-          /* ---- detail / push screens ---- */
-          .detail-header{ display:flex; align-items:center; gap:.7em; margin-bottom:1.1em; }
-          .back-btn{
-            width:2.1em; height:2.1em; border-radius:50%;
-            background:#fff; border:1px solid var(--line);
-            display:flex; align-items:center; justify-content:center; flex:0 0 auto; cursor:pointer;
-          }
-          .back-btn svg{ width:1.05em; height:1.05em; }
-          .detail-header h2{ font:800 1.02em/1.25 var(--font-display); margin:0; letter-spacing:-.005em; }
-          .detail-header span{ display:block; font:600 .72em/1 var(--font-body); color:#6B7268; margin-top:.2em; }
-
-          .summary-card{
-            background:#fff; border:1px solid var(--line); border-radius:16px;
-            padding:1em 1.1em; margin-bottom:1.2em;
-            display:flex; gap:1em;
-          }
-          .summary-card .cell{ flex:1; text-align:center; }
-          .summary-card .cell b{ display:block; font:800 1.05em/1 var(--font-display); }
-          .summary-card .cell small{ display:block; font:700 .62em/1.3 var(--font-body); color:#8A9188; text-transform:uppercase; letter-spacing:.04em; margin-top:.3em; }
-
-          .field{ margin-bottom:1.1em; }
-          .field label{ display:block; font:800 .74em/1 var(--font-body); text-transform:uppercase; letter-spacing:.05em; color:#6B7268; margin-bottom:.5em; }
-          .field textarea{
-            width:100%; min-height:6.5em; resize:vertical;
-            font:500 .85em/1.5 var(--font-body); color:var(--ink);
-            background:#fff; border:1.5px solid var(--line); border-radius:14px;
-            padding:.85em 1em;
-          }
-          .field textarea:focus{ outline:none; border-color:var(--blue); }
-          .file-chip{
-            display:flex; align-items:center; gap:.7em;
-            background:#fff; border:1.5px dashed var(--line); border-radius:14px;
-            padding:.8em 1em;
-          }
-          .file-chip .fic{
-            width:2em; height:2em; border-radius:9px; background:#DEE1FA; color:var(--blue-deep);
-            display:flex; align-items:center; justify-content:center; flex:0 0 auto;
-          }
-          .file-chip .fic svg{ width:1.05em; height:1.05em; }
-          .file-chip .name{ font:700 .78em/1.3 var(--font-body); flex:1 1 auto; }
-          .file-chip .swap{ font:700 .72em/1 var(--font-body); color:var(--blue); background:none; border:none; cursor:pointer; }
-
-          .success-panel{
-            display:flex; flex-direction:column; align-items:center; text-align:center;
-            padding:2.5em 1em 1em;
-          }
-          .success-panel .check{
-            width:3.4em; height:3.4em; border-radius:50%; background:#D9F0E1; color:var(--green-deep);
-            display:flex; align-items:center; justify-content:center; margin-bottom:1em;
-          }
-          .success-panel .check svg{ width:1.8em; height:1.8em; }
-          .success-panel h3{ font:800 1.05em/1.3 var(--font-display); margin:0 0 .4em; }
-          .success-panel p{ font:500 .82em/1.5 var(--font-body); color:#6B7268; max-width:26ch; margin:0 0 1.6em; }
-
-          /* ---- feed / community ---- */
-          .feed-compose{
-            display:flex; align-items:center; gap:.7em;
-            background:#fff; border:1px solid var(--line); border-radius:16px;
-            padding:.8em 1em; margin-bottom:1.2em;
-          }
-          .feed-compose .mini-avatar{
-            width:2em; height:2em; border-radius:50%; background:var(--orange); color:#fff;
-            display:flex; align-items:center; justify-content:center; font:800 .68em/1 var(--font-display); flex:0 0 auto;
-          }
-          .feed-compose .placeholder{ font:500 .8em/1 var(--font-body); color:#9AA39A; flex:1 1 auto; }
-          .feed-post{
-            background:#fff; border:1px solid var(--line); border-radius:18px;
-            padding:1em 1.1em; margin-bottom:.8em;
-          }
-          .feed-post .who{ display:flex; align-items:center; gap:.7em; margin-bottom:.7em; }
-          .feed-post .mini-avatar{
-            width:2.2em; height:2.2em; border-radius:50%; color:#fff;
-            display:flex; align-items:center; justify-content:center; font:800 .7em/1 var(--font-display); flex:0 0 auto;
-          }
-          .feed-post .who b{ display:block; font:800 .82em/1.2 var(--font-display); }
-          .feed-post .who span{ display:block; font:600 .7em/1.3 var(--font-body); color:#8A9188; }
-          .feed-post p{ font:500 .84em/1.55 var(--font-body); color:#2A302A; margin:0 0 .8em; }
-          .feed-post .stats{ display:flex; gap:1.1em; }
-          .feed-post .stats span{
-            display:inline-flex; align-items:center; gap:.35em;
-            font:700 .72em/1 var(--font-body); color:#8A9188;
-          }
-          .feed-post .stats svg{ width:1em; height:1em; }
-
-          /* ---- applications list ---- */
-          .app-row{
-            display:flex; align-items:center; gap:.9em;
-            background:#fff; border:1px solid var(--line); border-radius:16px;
-            padding:.95em 1.05em; margin-bottom:.7em;
-          }
-          .app-row .abadge{
-            width:2.4em; height:2.4em; border-radius:10px; color:#fff;
-            display:flex; align-items:center; justify-content:center; font:800 .72em/1 var(--font-display); flex:0 0 auto;
-          }
-          .app-row .info{ flex:1 1 auto; min-width:0; }
-          .app-row .info h4{ font:800 .84em/1.25 var(--font-display); margin:0 0 .15em; letter-spacing:-.005em; }
-          .app-row .info span{ font:600 .7em/1.3 var(--font-body); color:#8A9188; }
-
-          /* ---- profile shared ---- */
-          .profile-head{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:.4em 0 1.2em; }
-          .avatar{
-            width:4.2em; height:4.2em; border-radius:50%;
-            background:var(--orange); color:#fff;
-            display:flex; align-items:center; justify-content:center;
-            font:800 1.3em/1 var(--font-display);
-            margin-bottom:.6em;
-          }
-          .avatar.org{ border-radius:16px; background:var(--blue); }
-          .profile-head h2{ font:800 1.05em/1.2 var(--font-display); margin:0 0 .2em; letter-spacing:-.01em; }
-          .profile-head p{ font:600 .78em/1.4 var(--font-body); color:#6B7268; margin:0; max-width:26ch; }
-
-          .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6em; margin-bottom:1.4em; }
-          .stat-grid .cell{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:.8em .5em; text-align:center; }
-          .stat-grid .num{ font:800 1.1em/1 var(--font-display); letter-spacing:-.01em; font-variant-numeric:tabular-nums; }
-          .stat-grid .lbl{ font:700 .58em/1.3 var(--font-body); color:#8A9188; text-transform:uppercase; letter-spacing:.05em; margin-top:.3em; }
-
-          .list-row{
-            display:flex; align-items:center; gap:.8em;
-            background:#fff; border-bottom:1px solid var(--line);
-            padding:.95em 1.1em;
-          }
-          .list-row:first-child{ border-radius:14px 14px 0 0; }
-          .list-row:last-child{ border-radius:0 0 14px 14px; border-bottom:none; }
-          .list-row .ic{
-            width:2em; height:2em; border-radius:9px;
-            display:flex; align-items:center; justify-content:center;
-            flex:0 0 auto;
-          }
-          .list-row .ic svg{ width:1.05em; height:1.05em; }
-          .list-row span{ font:700 .85em/1 var(--font-body); flex:1 1 auto; }
-          .list-row.danger span{ color:var(--red); }
-          .list-wrap{ background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-        </style>
-
-        <div class="device">
-          <div class="device-screen">
-            <div class="statusbar" id="iwaveProtoStatusbar">
-              <span>9:41</span>
-              <span class="icons">
-                <svg viewBox="0 0 20 12" fill="currentColor"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4.5" width="3" height="7.5" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-                <svg viewBox="0 0 24 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="2.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="1.3" fill="currentColor"/><rect x="22.5" y="4" width="1.5" height="4" rx="1" fill="currentColor"/></svg>
-              </span>
-            </div>
-            <div class="screen-body px" id="iwaveProtoScreenBody"></div>
-            <div class="tabbar hidden" id="iwaveProtoTabbar"></div>
-          </div>
-        </div>
-
-        <script>
-        (function(){
-          var body = document.getElementById('iwaveProtoScreenBody');
-          var tabbar = document.getElementById('iwaveProtoTabbar');
-
-          var ICON = {
-            search: '<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/>',
-            users: '<circle cx="9" cy="8" r="3"/><path d="M2.5 19c1.2-3.5 3.8-5 6.5-5s5.3 1.5 6.5 5"/><circle cx="17" cy="8" r="2.4"/><path d="M15.5 11.5c2 .2 3.7 1.6 4.5 3.8"/>',
-            clipboard: '<rect x="5" y="4" width="14" height="17" rx="2"/><rect x="8.5" y="2" width="7" height="4" rx="1.2"/><path d="M8.5 12h7M8.5 16h5"/>',
-            user: '<circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c1.7-4 5-5.5 7.5-5.5S18.8 16 20.5 20"/>',
-            briefcase: '<rect x="3" y="8" width="18" height="11" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>',
-            gift: '<rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M4 9h16v3H4z"/><path d="M12 9v11"/><path d="M12 9C10 9 8.5 7.7 8.5 6.2 8.5 5 9.4 4 10.6 4 11.7 4 12 6 12 9Z"/><path d="M12 9c2 0 3.5-1.3 3.5-2.8C15.5 5 14.6 4 13.4 4 12.3 4 12 6 12 9Z"/>',
-            building: '<rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2"/>',
-            chevronLeft: '<path d="M15 5l-7 7 7 7"/>',
-            paperclip: '<path d="M8 12.5l6.5-6.5a3 3 0 1 1 4.2 4.2L11 18a5 5 0 1 1-7-7l7-7"/>',
-            heart: '<path d="M12 20.5s-7.5-4.6-9.7-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.7 11.5c-2.2 4.4-9.7 9-9.7 9Z"/>',
-            message: '<path d="M4 5h16v11H8l-4 4Z"/>',
-            check: '<path d="M5 12l5 5L19 7"/>',
-            plus: '<path d="M12 5v14M5 12h14"/>'
-          };
-          function icon(name, cls){
-            return '<svg class="' + (cls||'') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICON[name] + '</svg>';
-          }
-
-          var FOUNDERS = [
-            { name:'Horizon STEM Fund', amt:'$15,000/yr', field:'STEM · Undergrad', deadline:'Aug 30', color:'var(--blue)',
-              blurb:'Supporting first-generation students pursuing engineering and computer science degrees.', applicants:126 },
-            { name:'Global Futures Grant', amt:'$8,000 one-time', field:'Any major · Grad', deadline:'Sep 15', color:'var(--orange)',
-              blurb:'For admitted students who demonstrate significant financial need, regardless of field.', applicants:284 },
-            { name:'Women in Tech Award', amt:'$12,000/yr', field:'Computer Science', deadline:'Oct 1', color:'var(--green)',
-              blurb:'Backing women and non-binary students entering technology and data fields.', applicants:97 }
-          ];
-
-          var CANDIDATES = [
-            { name:'Priya Nair', uni:'University of Toronto', major:'Computer Science', gpa:'3.9', color:'var(--blue)',
-              quote:'"I built a low-cost water sensor for my village and want to keep building for people who need it most."' },
-            { name:'Diego Hernández', uni:'UNAM', major:'Mechanical Engineering', gpa:'3.7', color:'var(--orange)',
-              quote:'"I was accepted into my dream program — tuition is the only thing standing between me and my degree."' },
-            { name:'Sofia Adeyemi', uni:'University of Lagos', major:'Public Health', gpa:'3.8', color:'var(--green)',
-              quote:'"I want to bring maternal healthcare training back to my community once I graduate."' }
-          ];
-
-          var FEED = [
-            { name:'Marcus Ade', uni:'Nairobi · Applying to 3 funds', color:'var(--blue)', init:'MA',
-              text:'Just got an interview request from Horizon STEM Fund! Anyone have tips on what they ask in the funder call?',
-              likes:24, comments:9 },
-            { name:'Lena Kowalski', uni:'Warsaw · Accepted, Fall 2026', color:'var(--orange)', init:'LK',
-              text:'Sharing my motivation letter template that got me two offers — happy to review anyone’s draft this week.',
-              likes:58, comments:21 },
-            { name:'Tariq Osei', uni:'Accra · Applying to 5 funds', color:'var(--green)', init:'TO',
-              text:'Reminder: Global Futures Grant closes Sep 15. Financial need statements matter more than GPA here.',
-              likes:33, comments:6 }
-          ];
-
-          var APPLICATIONS = [
-            { fund:'Horizon STEM Fund', color:'var(--blue)', amt:'$15,000/yr', date:'Applied Jul 2', status:'Interview', chip:'orange' },
-            { fund:'Women in Tech Award', color:'var(--green)', amt:'$12,000/yr', date:'Applied Jun 20', status:'Under review', chip:'blue' },
-            { fund:'Global Futures Grant', color:'var(--orange)', amt:'$8,000', date:'Applied May 30', status:'Accepted', chip:'green' },
-            { fund:'Bright Path Fellowship', color:'#8B5CF6', amt:'$5,000', date:'Applied May 12', status:'Declined', chip:'red' }
-          ];
-
-          var state = { screen:'splash', founderIdx:0, candidateIdx:0, applySent:false, decision:null };
-
-          var STUDENT_TABS = [
-            { key:'student-discover', label:'Discover', icon:'search' },
-            { key:'student-feed', label:'Community', icon:'users' },
-            { key:'student-applications', label:'Applications', icon:'clipboard' },
-            { key:'student-profile', label:'Profile', icon:'user' }
-          ];
-          var FOUNDER_TABS = [
-            { key:'founder-candidates', label:'Candidates', icon:'briefcase' },
-            { key:'founder-scholarships', label:'Scholarships', icon:'gift' },
-            { key:'founder-profile', label:'Profile', icon:'building' }
-          ];
-          var DETAIL_BACK = { 'student-apply':'student-discover', 'founder-detail':'founder-candidates' };
-
-          function personaOf(s){
-            if (s === 'splash') return null;
-            return s.indexOf('student-') === 0 ? 'student' : 'founder';
-          }
-
-          var screens = {
-
-            splash: function(){
-              return (
-                '<div class="splash">' +
-                  '<div class="mark">' + icon('users') + '</div>' +
-                  '<div class="word">Iwave</div>' +
-                  '<div class="tag">Where accepted students meet the funders who cover tuition.</div>' +
-                  '<div class="ask">Which one are you?</div>' +
-                  '<div class="role-grid">' +
-                    '<div class="role-card" data-target="student-discover">' +
-                      '<div class="ric">' + icon('user') + '</div>' +
-                      '<div><h3>I’m a Student</h3><p>Find funders, apply with your CV, and join the community.</p></div>' +
-                      '<div class="go">' + icon('search') + '</div>' +
-                    '</div>' +
-                    '<div class="role-card" data-target="founder-candidates">' +
-                      '<div class="ric">' + icon('gift') + '</div>' +
-                      '<div><h3>I’m a Founder</h3><p>Review student CVs and fund the ones you believe in.</p></div>' +
-                      '<div class="go">' + icon('search') + '</div>' +
-                    '</div>' +
-                  '</div>' +
-                '</div>'
-              );
-            },
-
-            /* ================= STUDENT ================= */
-
-            'student-discover': function(){
-              var cards = FOUNDERS.map(function(f, i){
-                return (
-                  '<div class="listing-card">' +
-                    '<div class="top">' +
-                      '<div class="logo-badge" style="background:' + f.color + '">' + f.name.split(' ').map(function(w){return w[0];}).slice(0,2).join('') + '</div>' +
-                      '<div><h3>' + f.name + '</h3><div class="meta">' + f.amt + ' · Closes ' + f.deadline + '</div></div>' +
-                    '</div>' +
-                    '<p class="blurb">' + f.blurb + '</p>' +
-                    '<div class="tagrow"><span class="chip neutral">' + f.field + '</span><span class="chip neutral">' + f.applicants + ' applicants</span></div>' +
-                    '<button class="btn primary" data-target="student-apply" data-founder="' + i + '">View &amp; apply</button>' +
-                  '</div>'
-                );
-              }).join('');
-              return (
-                '<div class="page-head"><h2>Discover<span class="sub">' + FOUNDERS.length + ' open funds match your profile</span></h2>' + icon('search','icon-btn') + '</div>' +
-                '<div class="filter-row">' +
-                  '<span class="filter-chip active">All</span><span class="filter-chip">STEM</span><span class="filter-chip">Need-based</span><span class="filter-chip">Grad school</span><span class="filter-chip">Arts</span>' +
-                '</div>' +
-                cards +
-                '<div style="height:1.2em"></div>'
-              );
-            },
-
-            'student-apply': function(){
-              var f = FOUNDERS[state.founderIdx];
-              if (state.applySent){
-                return (
-                  '<div class="detail-header"><button class="back-btn" data-target="student-discover">' + icon('chevronLeft') + '</button><div><h2>' + f.name + '</h2></div></div>' +
-                  '<div class="success-panel">' +
-                    '<div class="check">' + icon('check') + '</div>' +
-                    '<h3>Application sent</h3>' +
-                    '<p>' + f.name + ' will review your CV and motivation letter and reach out through Iwave.</p>' +
-                    '<button class="btn primary" style="width:auto;padding:.9em 1.6em" data-target="student-applications">Track this application</button>' +
-                  '</div>'
-                );
-              }
-              return (
-                '<div class="detail-header"><button class="back-btn" data-target="student-discover">' + icon('chevronLeft') + '</button><div><h2>' + f.name + '</h2><span>' + f.amt + ' · Closes ' + f.deadline + '</span></div></div>' +
-                '<p class="blurb" style="margin-bottom:1.2em">' + f.blurb + '</p>' +
-                '<div class="field"><label>Your CV</label>' +
-                  '<div class="file-chip"><div class="fic">' + icon('paperclip') + '</div><span class="name">Amara_Diallo_CV.pdf</span><button class="swap">Replace</button></div>' +
-                '</div>' +
-                '<div class="field"><label>Motivation letter</label>' +
-                  '<textarea>Dear Horizon STEM Fund team, I’m a first-generation engineering student who was just accepted to my top-choice program. Your fund’s focus on first-gen students speaks directly to my story…</textarea>' +
-                '</div>' +
-                '<button class="btn primary" data-action="submit-application">Send application</button>'
-              );
-            },
-
-            'student-feed': function(){
-              var posts = FEED.map(function(p){
-                return (
-                  '<div class="feed-post">' +
-                    '<div class="who"><div class="mini-avatar" style="background:' + p.color + '">' + p.init + '</div><div><b>' + p.name + '</b><span>' + p.uni + '</span></div></div>' +
-                    '<p>' + p.text + '</p>' +
-                    '<div class="stats"><span>' + icon('heart') + ' ' + p.likes + '</span><span>' + icon('message') + ' ' + p.comments + '</span></div>' +
-                  '</div>'
-                );
-              }).join('');
-              return (
-                '<div class="page-head"><h2>Community<span class="sub">Applicants helping applicants</span></h2>' + icon('search','icon-btn') + '</div>' +
-                '<div class="feed-compose"><div class="mini-avatar" style="background:var(--orange)">AD</div><div class="placeholder">Share an update, ask for advice…</div></div>' +
-                posts +
-                '<div style="height:1.2em"></div>'
-              );
-            },
-
-            'student-applications': function(){
-              var rows = APPLICATIONS.map(function(a){
-                return (
-                  '<div class="app-row">' +
-                    '<div class="abadge" style="background:' + a.color + '">' + a.fund.split(' ').map(function(w){return w[0];}).slice(0,2).join('') + '</div>' +
-                    '<div class="info"><h4>' + a.fund + '</h4><span>' + a.amt + ' · ' + a.date + '</span></div>' +
-                    '<span class="chip ' + a.chip + '">' + a.status + '</span>' +
-                  '</div>'
-                );
-              }).join('');
-              return (
-                '<div class="page-head"><h2>Applications<span class="sub">' + APPLICATIONS.length + ' funds you’ve applied to</span></h2></div>' +
-                rows +
-                '<div style="height:1.2em"></div>'
-              );
-            },
-
-            'student-profile': function(){
-              return (
-                '<div class="profile-head">' +
-                  '<div class="avatar">AD</div>' +
-                  '<h2>Amara Diallo</h2>' +
-                  '<p>B.A. Communications · University of Toronto · Accepted Fall 2026</p>' +
-                '</div>' +
-                '<div class="stat-grid">' +
-                  '<div class="cell"><div class="num">4</div><div class="lbl">Applied</div></div>' +
-                  '<div class="cell"><div class="num">3.7</div><div class="lbl">GPA</div></div>' +
-                  '<div class="cell"><div class="num">62</div><div class="lbl">Profile views</div></div>' +
-                '</div>' +
-                '<div class="list-wrap">' +
-                  row('#DEE1FA','var(--blue-deep)', ICON.clipboard, 'Your CV') +
-                  row('#FDE9D4','var(--orange-deep)', ICON.message, 'Motivation letter') +
-                  row('#D9F0E1','var(--green-deep)', ICON.plus, 'Notifications') +
-                  row('#EFEFEF','#5B6259', ICON.user, 'Account') +
-                '</div>' +
-                '<div style="height:1em"></div>' +
-                '<div class="list-wrap"><div class="list-row danger"><span>Log out</span></div></div>' +
-                '<div style="height:1.4em"></div>'
-              );
-            },
-
-            /* ================= FOUNDER ================= */
-
-            'founder-candidates': function(){
-              var cards = CANDIDATES.map(function(c, i){
-                return (
-                  '<div class="candidate-card">' +
-                    '<div class="top">' +
-                      '<div class="logo-badge" style="background:' + c.color + '">' + c.name.split(' ').map(function(w){return w[0];}).slice(0,2).join('') + '</div>' +
-                      '<div><h3>' + c.name + '</h3><div class="meta">' + c.major + ' · GPA ' + c.gpa + '<br>' + c.uni + '</div></div>' +
-                    '</div>' +
-                    '<p class="quote">' + c.quote + '</p>' +
-                    '<button class="btn primary" data-target="founder-detail" data-candidate="' + i + '">Review candidate</button>' +
-                  '</div>'
-                );
-              }).join('');
-              return (
-                '<div class="page-head"><h2>Candidates<span class="sub">' + CANDIDATES.length + ' students match Horizon STEM Fund</span></h2>' + icon('search','icon-btn') + '</div>' +
-                '<div class="filter-row">' +
-                  '<span class="filter-chip active">All</span><span class="filter-chip">GPA 3.5+</span><span class="filter-chip">STEM</span><span class="filter-chip">First-gen</span>' +
-                '</div>' +
-                cards +
-                '<div style="height:1.2em"></div>'
-              );
-            },
-
-            'founder-detail': function(){
-              var c = CANDIDATES[state.candidateIdx];
-              var decided = state.decision;
-              return (
-                '<div class="detail-header"><button class="back-btn" data-target="founder-candidates">' + icon('chevronLeft') + '</button><div><h2>' + c.name + '</h2><span>' + c.uni + '</span></div></div>' +
-                '<div class="summary-card">' +
-                  '<div class="cell"><b>' + c.gpa + '</b><small>GPA</small></div>' +
-                  '<div class="cell"><b>' + c.major.split(' ')[0] + '</b><small>Major</small></div>' +
-                  '<div class="cell"><b>2026</b><small>Grad year</small></div>' +
-                '</div>' +
-                '<div class="field"><label>CV summary</label>' +
-                  '<div class="file-chip"><div class="fic">' + icon('paperclip') + '</div><span class="name">' + c.name.replace(' ','_') + '_CV.pdf</span></div>' +
-                '</div>' +
-                '<div class="field"><label>Motivation letter</label><p class="blurb">' + c.quote + '</p></div>' +
-                (decided === 'accepted'
-                  ? '<button class="btn success disabled">Funded ✓</button>'
-                  : decided === 'declined'
-                    ? '<button class="btn outline disabled">Declined</button>'
-                    : '<div class="btn-row"><button class="btn danger-outline" data-action="decline">Decline</button><button class="btn success" data-action="accept">Accept &amp; fund</button></div>'
-                )
-              );
-            },
-
-            'founder-scholarships': function(){
-              var rows = FOUNDERS.map(function(f){
-                return (
-                  '<div class="app-row">' +
-                    '<div class="abadge" style="background:' + f.color + '">' + f.name.split(' ').map(function(w){return w[0];}).slice(0,2).join('') + '</div>' +
-                    '<div class="info"><h4>' + f.name + '</h4><span>' + f.amt + ' · ' + f.applicants + ' applicants</span></div>' +
-                    '<span class="chip green">Open</span>' +
-                  '</div>'
-                );
-              }).join('');
-              return (
-                '<div class="page-head"><h2>Your scholarships<span class="sub">3 active listings</span></h2>' + icon('plus','icon-btn') + '</div>' +
-                rows +
-                '<div style="height:1.2em"></div>'
-              );
-            },
-
-            'founder-profile': function(){
-              return (
-                '<div class="profile-head">' +
-                  '<div class="avatar org">HS</div>' +
-                  '<h2>Horizon STEM Fund</h2>' +
-                  '<p>Supporting first-generation students in engineering and computer science since 2019.</p>' +
-                '</div>' +
-                '<div class="stat-grid">' +
-                  '<div class="cell"><div class="num">42</div><div class="lbl">Funded</div></div>' +
-                  '<div class="cell"><div class="num">$610k</div><div class="lbl">Given</div></div>' +
-                  '<div class="cell"><div class="num">3</div><div class="lbl">Active</div></div>' +
-                '</div>' +
-                '<div class="list-wrap">' +
-                  row('#DEE1FA','var(--blue-deep)', ICON.gift, 'Scholarships') +
-                  row('#FDE9D4','var(--orange-deep)', ICON.clipboard, 'Payment methods') +
-                  row('#D9F0E1','var(--green-deep)', ICON.plus, 'Notifications') +
-                  row('#EFEFEF','#5B6259', ICON.building, 'Organization') +
-                '</div>' +
-                '<div style="height:1em"></div>' +
-                '<div class="list-wrap"><div class="list-row danger"><span>Log out</span></div></div>' +
-                '<div style="height:1.4em"></div>'
-              );
-            }
-          };
-
-          function row(bg, fg, iconPath, label){
-            return (
-              '<div class="list-row">' +
-                '<div class="ic" style="background:' + bg + ';color:' + fg + '">' +
-                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + iconPath + '</svg>' +
-                '</div>' +
-                '<span>' + label + '</span>' +
-              '</div>'
-            );
-          }
-
-          function renderTabbar(persona, current){
-            var tabs = persona === 'student' ? STUDENT_TABS : FOUNDER_TABS;
-            tabbar.innerHTML = tabs.map(function(t){
-              return '<button data-target="' + t.key + '" class="' + (t.key === current ? 'active' : '') + '">' + icon(t.icon) + t.label + '</button>';
-            }).join('');
-          }
-
-          function setScreen(name){
-            state.screen = name;
-            body.innerHTML = screens[name]();
-            body.scrollTop = 0;
-
-            var persona = personaOf(name);
-            var isDetail = DETAIL_BACK.hasOwnProperty(name);
-
-            if (!persona || isDetail){
-              tabbar.classList.add('hidden');
-            } else {
-              tabbar.classList.remove('hidden');
-              renderTabbar(persona, name);
-            }
-          }
-
-          tabbar.addEventListener('click', function(e){
-            var t = e.target.closest('[data-target]');
-            if (t) setScreen(t.dataset.target);
-          });
-
-          body.addEventListener('click', function(e){
-            var founderCard = e.target.closest('[data-founder]');
-            if (founderCard){ state.founderIdx = +founderCard.dataset.founder; state.applySent = false; }
-
-            var candidateCard = e.target.closest('[data-candidate]');
-            if (candidateCard){ state.candidateIdx = +candidateCard.dataset.candidate; state.decision = null; }
-
-            var action = e.target.closest('[data-action]');
-            if (action){
-              var a = action.dataset.action;
-              if (a === 'submit-application'){ state.applySent = true; setScreen('student-apply'); return; }
-              if (a === 'accept'){ state.decision = 'accepted'; setScreen('founder-detail'); return; }
-              if (a === 'decline'){ state.decision = 'declined'; setScreen('founder-detail'); return; }
-            }
-
-            var t = e.target.closest('[data-target]');
-            if (t) setScreen(t.dataset.target);
-          });
-
-          setScreen('splash');
-        })();
-        </script>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
 
   <section>
     <div class="s-label">User Testing</div>
@@ -1621,6 +875,12 @@
       <div class="next-ttl-iw">Palem</div>
       <div class="next-arr-iw">→</div>
     </a>
+    <a href="art.html" class="next-proj-iw" style="border-left:1px solid rgba(0,0,0,0.1)">
+      <div class="next-lbl-iw">Also See</div>
+      <div class="next-ttl-iw">Painting &amp; Photography</div>
+      <div class="next-arr-iw">→</div>
+    </a>
+
   </div>
 
   <footer>
